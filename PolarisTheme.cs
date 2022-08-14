@@ -281,7 +281,7 @@ namespace PolarisTheme
             lastActiveTimeIncrement = lib.KnowledgeBase.GetButtonName(AuroraButton.Increment);
             activeSubPulse = lib.KnowledgeBase.GetButtonName(AuroraButton.SubPulse); 
 
-            
+             
             // blue to gray
             ThemeCreator.ThemeCreator.AddColorChange(oldMapColor, cfg_gray_221);
 
