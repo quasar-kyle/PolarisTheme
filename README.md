@@ -9,7 +9,7 @@ This mod attempts to make the interface easier on the eyes with a windows-defaul
 ## Installation Instructions
 1. Install [AuroraPatch](https://github.com/Aurora-Modders/AuroraPatch).
 2. Install [ThemeCreator](https://github.com/Aurora-Modders/ThemeCreator).
-3. Grab the latest zip from the [releases page](/releases). Extract PolarisTheme.zip into your Patches folder, so it becomes {your Aurora folder}/Patches/PolarisTheme/PolarisTheme.dll.
+3. Grab the latest zip from the [releases page]([/releases](https://github.com/quasar-kyle/PolarisTheme/releases). Extract PolarisTheme.zip into your Patches folder, so it becomes {your Aurora folder}/Patches/PolarisTheme/PolarisTheme.dll.
 4. Run AuroraPatch.exe from your Aurora Folder, then click Start Aurora. You'll need to do this every time you run Aurora.
 
 ### Thanks
