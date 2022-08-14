@@ -59,26 +59,26 @@ namespace PolarisTheme
             this.not_light_gray_anymore = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.preview_gray_2211 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.preview_textColor1 = new System.Windows.Forms.Label();
-            this.preview_textColor2 = new System.Windows.Forms.Label();
-            this.preview_combo_box_color1 = new System.Windows.Forms.ComboBox();
-            this.preview_darker_orange1 = new System.Windows.Forms.Label();
-            this.preview_not_cyan_anymore1 = new System.Windows.Forms.Label();
-            this.preview_not_cyan_body_anymore1 = new System.Windows.Forms.Label();
-            this.preview_not_dodger_blue_body_anymore1 = new System.Windows.Forms.Label();
-            this.preview_not_chocolate_anymore1 = new System.Windows.Forms.Label();
-            this.preview_not_light_gray_anymore1 = new System.Windows.Forms.Label();
-            this.preview_not_light_green_anymore1 = new System.Windows.Forms.Label();
-            this.preview_not_light_green_anymore2 = new System.Windows.Forms.Label();
-            this.preview_not_light_green_anymore3 = new System.Windows.Forms.Label();
-            this.preview_mapColor1 = new System.Windows.Forms.Panel();
-            this.preview_combo_box_color2 = new System.Windows.Forms.ComboBox();
-            this.preview_time_button1 = new System.Windows.Forms.Button();
-            this.preview_time_button2 = new System.Windows.Forms.Button();
-            this.resetToAurora = new System.Windows.Forms.Button();
             this.no_dropdown_color = new System.Windows.Forms.CheckBox();
+            this.preview_gray_2211 = new System.Windows.Forms.Panel();
+            this.preview_not_light_green_anymore3 = new System.Windows.Forms.Label();
+            this.preview_not_light_green_anymore2 = new System.Windows.Forms.Label();
+            this.preview_not_light_green_anymore1 = new System.Windows.Forms.Label();
+            this.preview_not_light_gray_anymore1 = new System.Windows.Forms.Label();
+            this.preview_not_chocolate_anymore1 = new System.Windows.Forms.Label();
+            this.preview_not_dodger_blue_body_anymore1 = new System.Windows.Forms.Label();
+            this.preview_not_cyan_body_anymore1 = new System.Windows.Forms.Label();
+            this.preview_not_cyan_anymore1 = new System.Windows.Forms.Label();
+            this.preview_darker_orange1 = new System.Windows.Forms.Label();
+            this.preview_combo_box_color1 = new System.Windows.Forms.ComboBox();
+            this.preview_textColor2 = new System.Windows.Forms.Label();
+            this.preview_textColor1 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.preview_mapColor1 = new System.Windows.Forms.Panel();
+            this.preview_time_button2 = new System.Windows.Forms.Button();
+            this.preview_time_button1 = new System.Windows.Forms.Button();
+            this.preview_combo_box_color2 = new System.Windows.Forms.ComboBox();
+            this.resetToAurora = new System.Windows.Forms.Button();
             this.preview_gray_2211.SuspendLayout();
             this.preview_mapColor1.SuspendLayout();
             this.SuspendLayout();
@@ -362,6 +362,17 @@ namespace PolarisTheme
             // 
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
+            // no_dropdown_color
+            // 
+            this.no_dropdown_color.AutoSize = true;
+            this.no_dropdown_color.Location = new System.Drawing.Point(130, 30);
+            this.no_dropdown_color.Name = "no_dropdown_color";
+            this.no_dropdown_color.Size = new System.Drawing.Size(116, 17);
+            this.no_dropdown_color.TabIndex = 33;
+            this.no_dropdown_color.Text = "No dropdown color";
+            this.toolTip1.SetToolTip(this.no_dropdown_color, resources.GetString("no_dropdown_color.ToolTip"));
+            this.no_dropdown_color.UseVisualStyleBackColor = true;
+            // 
             // preview_gray_2211
             // 
             this.preview_gray_2211.BackColor = System.Drawing.Color.Silver;
@@ -383,103 +394,14 @@ namespace PolarisTheme
             this.preview_gray_2211.Size = new System.Drawing.Size(218, 210);
             this.preview_gray_2211.TabIndex = 30;
             // 
-            // label14
+            // preview_not_light_green_anymore3
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(390, 42);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 13);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "Preview";
-            // 
-            // preview_textColor1
-            // 
-            this.preview_textColor1.AutoSize = true;
-            this.preview_textColor1.Location = new System.Drawing.Point(9, 12);
-            this.preview_textColor1.Name = "preview_textColor1";
-            this.preview_textColor1.Size = new System.Drawing.Size(136, 13);
-            this.preview_textColor1.TabIndex = 0;
-            this.preview_textColor1.Text = "This is the default text color";
-            // 
-            // preview_textColor2
-            // 
-            this.preview_textColor2.AutoSize = true;
-            this.preview_textColor2.Location = new System.Drawing.Point(11, 30);
-            this.preview_textColor2.Name = "preview_textColor2";
-            this.preview_textColor2.Size = new System.Drawing.Size(129, 13);
-            this.preview_textColor2.TabIndex = 0;
-            this.preview_textColor2.Text = "used for most of the game";
-            // 
-            // preview_combo_box_color1
-            // 
-            this.preview_combo_box_color1.FormattingEnabled = true;
-            this.preview_combo_box_color1.Location = new System.Drawing.Point(14, 57);
-            this.preview_combo_box_color1.Name = "preview_combo_box_color1";
-            this.preview_combo_box_color1.Size = new System.Drawing.Size(121, 21);
-            this.preview_combo_box_color1.TabIndex = 1;
-            // 
-            // preview_darker_orange1
-            // 
-            this.preview_darker_orange1.AutoSize = true;
-            this.preview_darker_orange1.Location = new System.Drawing.Point(11, 88);
-            this.preview_darker_orange1.Name = "preview_darker_orange1";
-            this.preview_darker_orange1.Size = new System.Drawing.Size(143, 13);
-            this.preview_darker_orange1.TabIndex = 2;
-            this.preview_darker_orange1.Text = "An orange commander name";
-            // 
-            // preview_not_cyan_anymore1
-            // 
-            this.preview_not_cyan_anymore1.AutoSize = true;
-            this.preview_not_cyan_anymore1.Location = new System.Drawing.Point(11, 107);
-            this.preview_not_cyan_anymore1.Name = "preview_not_cyan_anymore1";
-            this.preview_not_cyan_anymore1.Size = new System.Drawing.Size(101, 13);
-            this.preview_not_cyan_anymore1.TabIndex = 3;
-            this.preview_not_cyan_anymore1.Text = "A civilian population";
-            // 
-            // preview_not_cyan_body_anymore1
-            // 
-            this.preview_not_cyan_body_anymore1.AutoSize = true;
-            this.preview_not_cyan_body_anymore1.Location = new System.Drawing.Point(11, 127);
-            this.preview_not_cyan_body_anymore1.Name = "preview_not_cyan_body_anymore1";
-            this.preview_not_cyan_body_anymore1.Size = new System.Drawing.Size(140, 13);
-            this.preview_not_cyan_body_anymore1.TabIndex = 4;
-            this.preview_not_cyan_body_anymore1.Text = "A very suitable system body ";
-            // 
-            // preview_not_dodger_blue_body_anymore1
-            // 
-            this.preview_not_dodger_blue_body_anymore1.AutoSize = true;
-            this.preview_not_dodger_blue_body_anymore1.Location = new System.Drawing.Point(11, 147);
-            this.preview_not_dodger_blue_body_anymore1.Name = "preview_not_dodger_blue_body_anymore1";
-            this.preview_not_dodger_blue_body_anymore1.Size = new System.Drawing.Size(165, 13);
-            this.preview_not_dodger_blue_body_anymore1.TabIndex = 5;
-            this.preview_not_dodger_blue_body_anymore1.Text = "A somewhat suitable system body";
-            // 
-            // preview_not_chocolate_anymore1
-            // 
-            this.preview_not_chocolate_anymore1.AutoSize = true;
-            this.preview_not_chocolate_anymore1.Location = new System.Drawing.Point(11, 166);
-            this.preview_not_chocolate_anymore1.Name = "preview_not_chocolate_anymore1";
-            this.preview_not_chocolate_anymore1.Size = new System.Drawing.Size(121, 13);
-            this.preview_not_chocolate_anymore1.TabIndex = 6;
-            this.preview_not_chocolate_anymore1.Text = "Not a very suitable body";
-            // 
-            // preview_not_light_gray_anymore1
-            // 
-            this.preview_not_light_gray_anymore1.AutoSize = true;
-            this.preview_not_light_gray_anymore1.Location = new System.Drawing.Point(12, 185);
-            this.preview_not_light_gray_anymore1.Name = "preview_not_light_gray_anymore1";
-            this.preview_not_light_gray_anymore1.Size = new System.Drawing.Size(114, 13);
-            this.preview_not_light_gray_anymore1.TabIndex = 7;
-            this.preview_not_light_gray_anymore1.Text = "A governed population";
-            // 
-            // preview_not_light_green_anymore1
-            // 
-            this.preview_not_light_green_anymore1.AutoSize = true;
-            this.preview_not_light_green_anymore1.Location = new System.Drawing.Point(173, 13);
-            this.preview_not_light_green_anymore1.Name = "preview_not_light_green_anymore1";
-            this.preview_not_light_green_anymore1.Size = new System.Drawing.Size(13, 13);
-            this.preview_not_light_green_anymore1.TabIndex = 8;
-            this.preview_not_light_green_anymore1.Text = "7";
+            this.preview_not_light_green_anymore3.AutoSize = true;
+            this.preview_not_light_green_anymore3.Location = new System.Drawing.Point(160, 61);
+            this.preview_not_light_green_anymore3.Name = "preview_not_light_green_anymore3";
+            this.preview_not_light_green_anymore3.Size = new System.Drawing.Size(40, 13);
+            this.preview_not_light_green_anymore3.TabIndex = 10;
+            this.preview_not_light_green_anymore3.Text = "8.0819";
             // 
             // preview_not_light_green_anymore2
             // 
@@ -490,14 +412,103 @@ namespace PolarisTheme
             this.preview_not_light_green_anymore2.TabIndex = 9;
             this.preview_not_light_green_anymore2.Text = "1000";
             // 
-            // preview_not_light_green_anymore3
+            // preview_not_light_green_anymore1
             // 
-            this.preview_not_light_green_anymore3.AutoSize = true;
-            this.preview_not_light_green_anymore3.Location = new System.Drawing.Point(160, 61);
-            this.preview_not_light_green_anymore3.Name = "preview_not_light_green_anymore3";
-            this.preview_not_light_green_anymore3.Size = new System.Drawing.Size(40, 13);
-            this.preview_not_light_green_anymore3.TabIndex = 10;
-            this.preview_not_light_green_anymore3.Text = "8.0819";
+            this.preview_not_light_green_anymore1.AutoSize = true;
+            this.preview_not_light_green_anymore1.Location = new System.Drawing.Point(173, 13);
+            this.preview_not_light_green_anymore1.Name = "preview_not_light_green_anymore1";
+            this.preview_not_light_green_anymore1.Size = new System.Drawing.Size(13, 13);
+            this.preview_not_light_green_anymore1.TabIndex = 8;
+            this.preview_not_light_green_anymore1.Text = "7";
+            // 
+            // preview_not_light_gray_anymore1
+            // 
+            this.preview_not_light_gray_anymore1.AutoSize = true;
+            this.preview_not_light_gray_anymore1.Location = new System.Drawing.Point(12, 185);
+            this.preview_not_light_gray_anymore1.Name = "preview_not_light_gray_anymore1";
+            this.preview_not_light_gray_anymore1.Size = new System.Drawing.Size(114, 13);
+            this.preview_not_light_gray_anymore1.TabIndex = 7;
+            this.preview_not_light_gray_anymore1.Text = "A governed population";
+            // 
+            // preview_not_chocolate_anymore1
+            // 
+            this.preview_not_chocolate_anymore1.AutoSize = true;
+            this.preview_not_chocolate_anymore1.Location = new System.Drawing.Point(11, 166);
+            this.preview_not_chocolate_anymore1.Name = "preview_not_chocolate_anymore1";
+            this.preview_not_chocolate_anymore1.Size = new System.Drawing.Size(121, 13);
+            this.preview_not_chocolate_anymore1.TabIndex = 6;
+            this.preview_not_chocolate_anymore1.Text = "Not a very suitable body";
+            // 
+            // preview_not_dodger_blue_body_anymore1
+            // 
+            this.preview_not_dodger_blue_body_anymore1.AutoSize = true;
+            this.preview_not_dodger_blue_body_anymore1.Location = new System.Drawing.Point(11, 147);
+            this.preview_not_dodger_blue_body_anymore1.Name = "preview_not_dodger_blue_body_anymore1";
+            this.preview_not_dodger_blue_body_anymore1.Size = new System.Drawing.Size(165, 13);
+            this.preview_not_dodger_blue_body_anymore1.TabIndex = 5;
+            this.preview_not_dodger_blue_body_anymore1.Text = "A somewhat suitable system body";
+            // 
+            // preview_not_cyan_body_anymore1
+            // 
+            this.preview_not_cyan_body_anymore1.AutoSize = true;
+            this.preview_not_cyan_body_anymore1.Location = new System.Drawing.Point(11, 127);
+            this.preview_not_cyan_body_anymore1.Name = "preview_not_cyan_body_anymore1";
+            this.preview_not_cyan_body_anymore1.Size = new System.Drawing.Size(140, 13);
+            this.preview_not_cyan_body_anymore1.TabIndex = 4;
+            this.preview_not_cyan_body_anymore1.Text = "A very suitable system body ";
+            // 
+            // preview_not_cyan_anymore1
+            // 
+            this.preview_not_cyan_anymore1.AutoSize = true;
+            this.preview_not_cyan_anymore1.Location = new System.Drawing.Point(11, 107);
+            this.preview_not_cyan_anymore1.Name = "preview_not_cyan_anymore1";
+            this.preview_not_cyan_anymore1.Size = new System.Drawing.Size(101, 13);
+            this.preview_not_cyan_anymore1.TabIndex = 3;
+            this.preview_not_cyan_anymore1.Text = "A civilian population";
+            // 
+            // preview_darker_orange1
+            // 
+            this.preview_darker_orange1.AutoSize = true;
+            this.preview_darker_orange1.Location = new System.Drawing.Point(11, 88);
+            this.preview_darker_orange1.Name = "preview_darker_orange1";
+            this.preview_darker_orange1.Size = new System.Drawing.Size(143, 13);
+            this.preview_darker_orange1.TabIndex = 2;
+            this.preview_darker_orange1.Text = "An orange commander name";
+            // 
+            // preview_combo_box_color1
+            // 
+            this.preview_combo_box_color1.FormattingEnabled = true;
+            this.preview_combo_box_color1.Location = new System.Drawing.Point(14, 57);
+            this.preview_combo_box_color1.Name = "preview_combo_box_color1";
+            this.preview_combo_box_color1.Size = new System.Drawing.Size(121, 21);
+            this.preview_combo_box_color1.TabIndex = 1;
+            // 
+            // preview_textColor2
+            // 
+            this.preview_textColor2.AutoSize = true;
+            this.preview_textColor2.Location = new System.Drawing.Point(11, 30);
+            this.preview_textColor2.Name = "preview_textColor2";
+            this.preview_textColor2.Size = new System.Drawing.Size(129, 13);
+            this.preview_textColor2.TabIndex = 0;
+            this.preview_textColor2.Text = "used for most of the game";
+            // 
+            // preview_textColor1
+            // 
+            this.preview_textColor1.AutoSize = true;
+            this.preview_textColor1.Location = new System.Drawing.Point(9, 12);
+            this.preview_textColor1.Name = "preview_textColor1";
+            this.preview_textColor1.Size = new System.Drawing.Size(136, 13);
+            this.preview_textColor1.TabIndex = 0;
+            this.preview_textColor1.Text = "This is the default text color";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(390, 42);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 13);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Preview";
             // 
             // preview_mapColor1
             // 
@@ -511,13 +522,15 @@ namespace PolarisTheme
             this.preview_mapColor1.Size = new System.Drawing.Size(218, 98);
             this.preview_mapColor1.TabIndex = 32;
             // 
-            // preview_combo_box_color2
+            // preview_time_button2
             // 
-            this.preview_combo_box_color2.FormattingEnabled = true;
-            this.preview_combo_box_color2.Location = new System.Drawing.Point(15, 62);
-            this.preview_combo_box_color2.Name = "preview_combo_box_color2";
-            this.preview_combo_box_color2.Size = new System.Drawing.Size(153, 21);
-            this.preview_combo_box_color2.TabIndex = 0;
+            this.preview_time_button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.preview_time_button2.Location = new System.Drawing.Point(106, 13);
+            this.preview_time_button2.Name = "preview_time_button2";
+            this.preview_time_button2.Size = new System.Drawing.Size(80, 37);
+            this.preview_time_button2.TabIndex = 2;
+            this.preview_time_button2.Text = "30 Seconds";
+            this.preview_time_button2.UseVisualStyleBackColor = false;
             // 
             // preview_time_button1
             // 
@@ -526,18 +539,16 @@ namespace PolarisTheme
             this.preview_time_button1.Name = "preview_time_button1";
             this.preview_time_button1.Size = new System.Drawing.Size(84, 37);
             this.preview_time_button1.TabIndex = 1;
-            this.preview_time_button1.Text = "button1";
+            this.preview_time_button1.Text = "5 Seconds";
             this.preview_time_button1.UseVisualStyleBackColor = false;
             // 
-            // preview_time_button2
+            // preview_combo_box_color2
             // 
-            this.preview_time_button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.preview_time_button2.Location = new System.Drawing.Point(106, 13);
-            this.preview_time_button2.Name = "preview_time_button2";
-            this.preview_time_button2.Size = new System.Drawing.Size(80, 37);
-            this.preview_time_button2.TabIndex = 2;
-            this.preview_time_button2.Text = "button2";
-            this.preview_time_button2.UseVisualStyleBackColor = false;
+            this.preview_combo_box_color2.FormattingEnabled = true;
+            this.preview_combo_box_color2.Location = new System.Drawing.Point(15, 62);
+            this.preview_combo_box_color2.Name = "preview_combo_box_color2";
+            this.preview_combo_box_color2.Size = new System.Drawing.Size(153, 21);
+            this.preview_combo_box_color2.TabIndex = 0;
             // 
             // resetToAurora
             // 
@@ -547,17 +558,6 @@ namespace PolarisTheme
             this.resetToAurora.TabIndex = 6;
             this.resetToAurora.Text = "Reset all to Aurora defaults";
             this.resetToAurora.UseVisualStyleBackColor = true;
-            // 
-            // no_dropdown_color
-            // 
-            this.no_dropdown_color.AutoSize = true;
-            this.no_dropdown_color.Location = new System.Drawing.Point(130, 30);
-            this.no_dropdown_color.Name = "no_dropdown_color";
-            this.no_dropdown_color.Size = new System.Drawing.Size(116, 17);
-            this.no_dropdown_color.TabIndex = 33;
-            this.no_dropdown_color.Text = "No dropdown color";
-            this.toolTip1.SetToolTip(this.no_dropdown_color, resources.GetString("no_dropdown_color.ToolTip"));
-            this.no_dropdown_color.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 

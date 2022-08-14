@@ -279,7 +279,7 @@ namespace PolarisTheme
             var revertToBlue = new ThemeCreator.ColorChange { BackgroundColor = cfg_mapColor };
             var setToGray221 = new ThemeCreator.ColorChange { BackgroundColor = cfg_gray_221 };
             lastActiveTimeIncrement = lib.KnowledgeBase.GetButtonName(AuroraButton.Increment);
-            activeSubPulse = lib.KnowledgeBase.GetButtonName(AuroraButton.SubPulse);
+            activeSubPulse = lib.KnowledgeBase.GetButtonName(AuroraButton.SubPulse); 
 
             
             // blue to gray
