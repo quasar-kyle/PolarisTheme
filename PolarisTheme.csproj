@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="ThemeCreator">
       <HintPath>C:\AuroraCS\Patches\ThemeCreator\ThemeCreator.dll</HintPath>
-      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -83,9 +82,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy /Y "$(TargetDir)$(TargetName).dll" "C:\AuroraCS\Patches\PolarisTheme\$(TargetName).dll"</PostBuildEvent>

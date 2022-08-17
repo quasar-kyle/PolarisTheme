@@ -1,16 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Linq;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.IO;
 
 using HarmonyLib;
 using Lib;
-using PolarisTheme.Properties;
+
+/* DONE:
+ * - added: red text to the list of colors that can be configured
+ * - changed: the default color for active time buttons to a lighter color
+ * - fixed: yellow movement trails on the map were being changed to text color
+ * - fixed: time buttons were reverting to the original dark blue colors while auto-turns were running
+ */
 
 namespace PolarisTheme
 {
@@ -31,7 +35,7 @@ namespace PolarisTheme
         private static readonly Color oldLightYellow = Color.FromArgb(255, 255, 192);
         private static readonly Color oldLightGreen = Color.FromArgb(128, 255, 128);
         private static readonly Color oldButtonHighlight = Color.FromArgb(0, 0, 120);
-
+        
         // settings controlled by user
         private static bool cfg_antiAlias;
         private static bool cfg_no_dropdown_color;
@@ -47,6 +51,7 @@ namespace PolarisTheme
         private static Color cfg_not_dodger_blue_body_anymore;
         private static Color cfg_not_chocolate_anymore;
         private static Color cfg_not_light_gray_anymore;
+        private static Color cfg_not_red_anymore;
 
         // defaults for the configurable settings
         private void ResetToDefaultSettings()
@@ -57,7 +62,7 @@ namespace PolarisTheme
             cfg_textColor = Color.Black;
             cfg_gray_221 = Color.FromArgb(221, 221, 221);
             cfg_combo_box_color = Color.FromArgb(240, 240, 240);
-            cfg_light_blue_highlight = Color.FromArgb(100, 216, 255);
+            cfg_light_blue_highlight = Color.FromArgb(229, 241, 251);
             cfg_darker_orange = Color.FromArgb(187, 96, 0);
             cfg_not_light_green_anymore = Color.FromArgb(0, 0, 160);
             cfg_not_cyan_anymore = Color.Teal;
@@ -65,6 +70,7 @@ namespace PolarisTheme
             cfg_not_dodger_blue_body_anymore = Color.Blue;
             cfg_not_chocolate_anymore = Color.FromArgb(178, 34, 34);
             cfg_not_light_gray_anymore = Color.FromArgb(90, 90, 120);
+            cfg_not_red_anymore = Color.Red; // still using red for mod defaults, but allow user to change it
         }
 
 
@@ -97,6 +103,7 @@ namespace PolarisTheme
             form.not_dodger_blue_body_anymore.BackColor = cfg_not_dodger_blue_body_anymore;
             form.not_chocolate_anymore.BackColor = cfg_not_chocolate_anymore;
             form.not_light_gray_anymore.BackColor = cfg_not_light_gray_anymore;
+            form.not_red_anymore.BackColor = cfg_not_red_anymore;
             RefreshPreview(form);
         }
 
@@ -125,6 +132,7 @@ namespace PolarisTheme
             form.preview_not_dodger_blue_body_anymore1.ForeColor = form.not_dodger_blue_body_anymore.BackColor;
             form.preview_not_chocolate_anymore1.ForeColor = form.not_chocolate_anymore.BackColor;
             form.preview_not_light_gray_anymore1.ForeColor = form.not_light_gray_anymore.BackColor;
+            form.preview_not_red_anymore1.ForeColor = form.not_red_anymore.BackColor;
         }
         private void ResetToAuroraSettings() // these are not the mod defaults!  Scroll up!
         {
@@ -142,6 +150,7 @@ namespace PolarisTheme
             cfg_not_dodger_blue_body_anymore = Color.DodgerBlue;
             cfg_not_chocolate_anymore = Color.Chocolate;
             cfg_not_light_gray_anymore = Color.LightGray;
+            cfg_not_red_anymore = Color.Red;
         }
 
 
@@ -196,6 +205,7 @@ namespace PolarisTheme
             form.not_dodger_blue_body_anymore.Click += (object sender, EventArgs e) => OnColorButtonClick(form.not_dodger_blue_body_anymore);
             form.not_chocolate_anymore.Click += (object sender, EventArgs e) => OnColorButtonClick(form.not_chocolate_anymore);
             form.not_light_gray_anymore.Click += (object sender, EventArgs e) => OnColorButtonClick(form.not_light_gray_anymore);
+            form.not_red_anymore.Click += (object sender, EventArgs e) => OnColorButtonClick(form.not_red_anymore);
 
             form.saveButton.Click += (object sender, EventArgs e) => {
                 cfg_antiAlias = form.antiAlias.Checked;
@@ -212,6 +222,7 @@ namespace PolarisTheme
                 cfg_not_dodger_blue_body_anymore = form.not_dodger_blue_body_anymore.BackColor;
                 cfg_not_chocolate_anymore = form.not_chocolate_anymore.BackColor;
                 cfg_not_light_gray_anymore = form.not_light_gray_anymore.BackColor;
+                cfg_not_red_anymore = form.not_red_anymore.BackColor;
                 Serialize("antiAlias", cfg_antiAlias);
                 Serialize("no_dropdown_color", cfg_no_dropdown_color);
                 Serialize("mapColor", cfg_mapColor);
@@ -226,6 +237,7 @@ namespace PolarisTheme
                 Serialize("not_dodger_blue_body_anymore", cfg_not_dodger_blue_body_anymore);
                 Serialize("not_chocolate_anymore", cfg_not_chocolate_anymore);
                 Serialize("not_light_gray_anymore", cfg_not_light_gray_anymore);
+                Serialize("not_red_anymore", cfg_not_red_anymore);
                 if (lockSettings)
                 {
                     MessageBox.Show("Settings saved, but they won't take effect until you restart Aurora");
@@ -253,6 +265,7 @@ namespace PolarisTheme
             if (File.Exists(GetSettingFileName("not_dodger_blue_body_anymore"))) cfg_not_dodger_blue_body_anymore = Deserialize<Color>("not_dodger_blue_body_anymore");
             if (File.Exists(GetSettingFileName("not_chocolate_anymore"))) cfg_not_chocolate_anymore = Deserialize<Color>("not_chocolate_anymore");
             if (File.Exists(GetSettingFileName("not_light_gray_anymore"))) cfg_not_light_gray_anymore = Deserialize<Color>("not_light_gray_anymore");
+            if (File.Exists(GetSettingFileName("not_red_anymore"))) cfg_not_red_anymore = Deserialize<Color>("not_red_anymore");
         }
 
         private string GetSettingFileName(string setting)
@@ -268,7 +281,7 @@ namespace PolarisTheme
         {
             //Harmony.DEBUG = true;   // logging
             lockSettings = true;
-            FileLog.Reset();
+            //FileLog.Reset();
             LogInfo("Loading PolarisTheme");
             
             
@@ -302,9 +315,7 @@ namespace PolarisTheme
                 }
             }
 
-
             // tweak new ListViewItems after they are added to a list, such as planets in the System View window
-            
             harmony.Patch(AccessTools.Method(typeof(ListView.ListViewItemCollection), "Add", new[] { typeof(ListViewItem) }),
                 postfix: new HarmonyMethod(GetType().GetMethod("ListItemPostfix", AccessTools.all)));
 
@@ -365,13 +376,22 @@ namespace PolarisTheme
 
             ThemeCreator.ThemeCreator.DrawLinePrefixAction((graphics, pen) =>
             {
-                if (cfg_antiAlias)
+                if (cfg_antiAlias) 
                 {
                     graphics.SmoothingMode = SmoothingMode.AntiAlias;
                 }
+
+                // Movement tails
+                if (pen.Color == null || pen.Color == cfg_textColor)
+                {
+                    // Restore player contact movement tail color to the old yellow one (was overriden
+                    // by global color contructor hook).
+                    pen.Color = oldLightYellow;
+                };
+
             });
             
-            FileLog.Log("Polaris done patching");
+            //FileLog.Log("Polaris done patching");
         }
         // end of the patching
 
@@ -391,7 +411,12 @@ namespace PolarisTheme
             {
                 __result = cfg_not_light_gray_anymore;
             }
+            else if (__result == oldButtonHighlight)
+            {
+                __result = cfg_light_blue_highlight;
+            }
         }
+
 
         private static void ListItemPostfix(ref ListViewItem __result)
         {
@@ -434,6 +459,10 @@ namespace PolarisTheme
             else if (origColor == Color.LightGray) // seen in some lists in commanders window
             {
                 return cfg_not_light_gray_anymore;
+            }
+            else if (origColor == Color.Red) // e.g. damaged ships
+            {
+                return cfg_not_red_anymore;
             }
             else
             {
@@ -486,18 +515,28 @@ namespace PolarisTheme
             // add a nice light blue highlight on button mouseover. also required for ApplyActiveButtonStyle to work
             button.UseVisualStyleBackColor = true;
 
-            if (IsTimeIncrementButton(button))
+            if (IsSubPulseButton(button) || IsTimeIncrementButton(button))
             {
-                button.Click += OnTimeIncrementButtonClick;
-                ApplyActiveButtonStyle(button, button.Name == lastActiveTimeIncrement);
-            }
-            else if (IsSubPulseButton(button))
-            {
-                button.Click += OnSubPulseButtonClick;
-                ApplyActiveButtonStyle(button, button.Name == activeSubPulse);
+                button.BackColorChanged += TimeButton_BackColorChanged;
             }
         }
 
+         
+        private static bool changing_button_backcolor = false;
+
+        private static void TimeButton_BackColorChanged(object sender, EventArgs e)
+        {
+            if (!changing_button_backcolor)
+            {
+                var button = sender as Button;
+                if (button.BackColor == oldMapColor)
+                {
+                    changing_button_backcolor = true;
+                    button.BackColor = cfg_gray_221;
+                    changing_button_backcolor = false;
+                }
+            }
+        }
 
         private static void ApplyListViewChanges(ListView listView)
         {
@@ -963,39 +1002,8 @@ namespace PolarisTheme
             //    //    }
             //    //}
             //});
-
-            //ThemeCreator.ThemeCreator.DrawLinePrefixAction((graphics, pen) =>
-            //{
-            //    graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            //    //// Movement tails
-            //    //if (pen.Color == oldCivilianContactColor || pen.Color == oldHostileContactColor
-            //    //    || pen.Color == mainTextColor || pen.Color == oldNeutralContactColor)
-            //    //{
-            //    //    // Restore player contact movement tail color to the old yellow one (was overriden
-            //    //    // by global color contructor hook).
-            //    //    var newColor = pen.Color == mainTextColor ? oldPlayerContactColor : pen.Color;
-
-            //    //    pen.Color = ControlPaint.Dark(newColor, 0.5f);
-            //    //}
-            //    //// Comet path (distance ruler also uses the same color but has pen.Width > 1)
-            //    //else if (pen.Color == oldCometPathColor && pen.Width == 1)
-            //    //{
-            //    //    pen.Color = orbitColor;
-            //    //}
-            //});
-
-
-
-            //// Toolbar button images
-            ////ChangeButtonStyle(AuroraButton.ZoomIn, Resources.Icon_ZoomIn, mainTextColor);
-            ////ChangeButtonStyle(AuroraButton.ToolbarColony, Resources.Icon_Colony, mainTextColor, economicsButtonBackgroundColor);
-
-
-            //ThemeCreator.ThemeCreator.DrawLinePrefixAction((graphics, pen) =>
-            //{
-                //// Movement tails
-                //if (pen.Color == oldCivilianContactColor || pen.Color == oldHostileContactColor
+                //          // Movement tails
+                //if (pen.Color == null || pen.Color == oldHostileContactColor
                 //    || pen.Color == mainTextColor || pen.Color == oldNeutralContactColor)
                 //{
                 //    // Restore player contact movement tail color to the old yellow one (was overriden
@@ -1004,8 +1012,14 @@ namespace PolarisTheme
 
                 //    pen.Color = ControlPaint.Dark(newColor, 0.5f);
                 //}
+
                 //// Comet path (distance ruler also uses the same color but has pen.Width > 1)
                 //else if (pen.Color == oldCometPathColor && pen.Width == 1)
                 //{
                 //    pen.Color = orbitColor;
                 //}
+
+
+            //// Toolbar button images
+            ////ChangeButtonStyle(AuroraButton.ZoomIn, Resources.Icon_ZoomIn, mainTextColor);
+            ////ChangeButtonStyle(AuroraButton.ToolbarColony, Resources.Icon_Colony, mainTextColor, economicsButtonBackgroundColor);
