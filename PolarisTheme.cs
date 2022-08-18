@@ -10,10 +10,7 @@ using HarmonyLib;
 using Lib;
 
 /* DONE:
- * - added: red text to the list of colors that can be configured
- * - changed: the default color for active time buttons to a lighter color
- * - fixed: yellow movement trails on the map were being changed to text color
- * - fixed: time buttons were reverting to the original dark blue colors while auto-turns were running
+ * - added: setting to allow buttons to have the same color as windows, in the original Aurora style.
  */
 
 namespace PolarisTheme
@@ -39,6 +36,7 @@ namespace PolarisTheme
         // settings controlled by user
         private static bool cfg_antiAlias;
         private static bool cfg_no_dropdown_color;
+        private static bool cfg_no_button_color;
         private static Color cfg_mapColor;
         private static Color cfg_textColor;
         private static Color cfg_gray_221;
@@ -58,6 +56,7 @@ namespace PolarisTheme
         {
             cfg_antiAlias = true;
             cfg_no_dropdown_color = false;
+            cfg_no_button_color = true;
             cfg_mapColor = oldMapColor;
             cfg_textColor = Color.Black;
             cfg_gray_221 = Color.FromArgb(221, 221, 221);
@@ -82,6 +81,10 @@ namespace PolarisTheme
             return mapNames.Contains(control.Name) || otherBlueControls.Contains(control.Name)
                 || control.Parent != null && mapNames.Contains(control.Parent.Name);
         }
+        private static bool IsButtonOnMap(Button button)
+        {
+            return button != null && button.Parent != null && button.Parent.Parent != null && mapNames.Contains(button.Parent.Parent.Name);
+        }
 
         //
         // settings code for the aurora patcher
@@ -91,6 +94,7 @@ namespace PolarisTheme
         {
             form.antiAlias.Checked = cfg_antiAlias;
             form.no_dropdown_color.Checked = cfg_no_dropdown_color;
+            form.no_button_color.Checked = cfg_no_button_color;
             form.mapColor.BackColor = cfg_mapColor;
             form.textColor.BackColor = cfg_textColor;
             form.gray_221.BackColor = cfg_gray_221;
@@ -119,6 +123,8 @@ namespace PolarisTheme
             form.preview_combo_box_color2.ForeColor = form.textColor.BackColor;
             form.preview_combo_box_color1.DropDownStyle = form.no_dropdown_color.Checked ? ComboBoxStyle.DropDownList : ComboBoxStyle.DropDown;
             form.preview_combo_box_color2.DropDownStyle = form.no_dropdown_color.Checked ? ComboBoxStyle.DropDownList : ComboBoxStyle.DropDown;
+            form.preview_no_button_color1.UseVisualStyleBackColor = form.no_button_color.Checked;
+            form.preview_no_button_color1.ForeColor = form.textColor.BackColor;
             form.preview_time_button1.BackColor = form.gray_221.BackColor;
             form.preview_time_button2.BackColor = form.light_blue_highlight.BackColor;
             form.preview_time_button1.ForeColor = form.textColor.BackColor;
@@ -138,6 +144,7 @@ namespace PolarisTheme
         {
             cfg_antiAlias = false;
             cfg_no_dropdown_color = false;
+            cfg_no_button_color = false;
             cfg_mapColor = oldMapColor;
             cfg_textColor = oldLightYellow;
             cfg_gray_221 = oldMapColor;
@@ -193,6 +200,7 @@ namespace PolarisTheme
             };
 
             form.no_dropdown_color.CheckedChanged += (object sender, EventArgs e) => RefreshPreview(form);
+            form.no_button_color.CheckedChanged += (object sender, EventArgs e) => RefreshPreview(form);
             form.mapColor.Click += (object sender, EventArgs e) => OnColorButtonClick(form.mapColor);
             form.textColor.Click += (object sender, EventArgs e) => OnColorButtonClick(form.textColor);
             form.gray_221.Click += (object sender, EventArgs e) => OnColorButtonClick(form.gray_221);
@@ -210,6 +218,7 @@ namespace PolarisTheme
             form.saveButton.Click += (object sender, EventArgs e) => {
                 cfg_antiAlias = form.antiAlias.Checked;
                 cfg_no_dropdown_color = form.no_dropdown_color.Checked;
+                cfg_no_button_color = form.no_button_color.Checked;
                 cfg_mapColor = form.mapColor.BackColor;
                 cfg_textColor = form.textColor.BackColor;
                 cfg_gray_221 = form.gray_221.BackColor;
@@ -225,6 +234,7 @@ namespace PolarisTheme
                 cfg_not_red_anymore = form.not_red_anymore.BackColor;
                 Serialize("antiAlias", cfg_antiAlias);
                 Serialize("no_dropdown_color", cfg_no_dropdown_color);
+                Serialize("no_button_color", cfg_no_button_color);
                 Serialize("mapColor", cfg_mapColor);
                 Serialize("textColor", cfg_textColor);
                 Serialize("gray_221", cfg_gray_221);
@@ -253,6 +263,7 @@ namespace PolarisTheme
             ResetToDefaultSettings();
             if (File.Exists(GetSettingFileName("antiAlias"))) cfg_antiAlias = Deserialize<bool>("antiAlias");
             if (File.Exists(GetSettingFileName("no_dropdown_color"))) cfg_no_dropdown_color = Deserialize<bool>("no_dropdown_color");
+            if (File.Exists(GetSettingFileName("no_button_color"))) cfg_no_button_color = Deserialize<bool>("no_button_color");
             if (File.Exists(GetSettingFileName("mapColor"))) cfg_mapColor = Deserialize<Color>("mapColor");
             if (File.Exists(GetSettingFileName("textColor"))) cfg_textColor = Deserialize<Color>("textColor");
             if (File.Exists(GetSettingFileName("gray_221"))) cfg_gray_221 = Deserialize<Color>("gray_221");
@@ -512,15 +523,16 @@ namespace PolarisTheme
 
         private static void ApplyButtonChanges(Button button)
         {
-            // add a nice light blue highlight on button mouseover. also required for ApplyActiveButtonStyle to work
-            button.UseVisualStyleBackColor = true;
-
             if (IsSubPulseButton(button) || IsTimeIncrementButton(button))
             {
                 button.BackColorChanged += TimeButton_BackColorChanged;
             }
+            else if (cfg_no_button_color || IsButtonOnMap(button))
+            {
+                button.UseVisualStyleBackColor = true;
+            }
         }
-
+         
          
         private static bool changing_button_backcolor = false;
 
@@ -544,8 +556,7 @@ namespace PolarisTheme
             {
                 listView.FullRowSelect = true;
             }
-
-            if (listView.Name == "lstvSB")  // fix the blue bar in the system view window
+            if (listView.Name == "lstvSB" && cfg_no_button_color)  // fix the blue bar in the system view window
             {
                 listView.OwnerDraw = false;
             }

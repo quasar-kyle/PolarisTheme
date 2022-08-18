@@ -60,7 +60,9 @@ namespace PolarisTheme
             this.label13 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.no_dropdown_color = new System.Windows.Forms.CheckBox();
+            this.not_red_anymore = new System.Windows.Forms.Button();
             this.preview_gray_2211 = new System.Windows.Forms.Panel();
+            this.preview_not_red_anymore1 = new System.Windows.Forms.Label();
             this.preview_not_light_green_anymore3 = new System.Windows.Forms.Label();
             this.preview_not_light_green_anymore2 = new System.Windows.Forms.Label();
             this.preview_not_light_green_anymore1 = new System.Windows.Forms.Label();
@@ -80,8 +82,8 @@ namespace PolarisTheme
             this.preview_combo_box_color2 = new System.Windows.Forms.ComboBox();
             this.resetToAurora = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.not_red_anymore = new System.Windows.Forms.Button();
-            this.preview_not_red_anymore1 = new System.Windows.Forms.Label();
+            this.no_button_color = new System.Windows.Forms.CheckBox();
+            this.preview_no_button_color1 = new System.Windows.Forms.Button();
             this.preview_gray_2211.SuspendLayout();
             this.preview_mapColor1.SuspendLayout();
             this.SuspendLayout();
@@ -376,10 +378,23 @@ namespace PolarisTheme
             this.toolTip1.SetToolTip(this.no_dropdown_color, resources.GetString("no_dropdown_color.ToolTip"));
             this.no_dropdown_color.UseVisualStyleBackColor = true;
             // 
+            // not_red_anymore
+            // 
+            this.not_red_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.not_red_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.not_red_anymore.Location = new System.Drawing.Point(110, 382);
+            this.not_red_anymore.Name = "not_red_anymore";
+            this.not_red_anymore.Size = new System.Drawing.Size(178, 21);
+            this.not_red_anymore.TabIndex = 34;
+            this.toolTip1.SetToolTip(this.not_red_anymore, "For example, the light gray used for populations with a governor, in the Commande" +
+        "rs window");
+            this.not_red_anymore.UseVisualStyleBackColor = false;
+            // 
             // preview_gray_2211
             // 
             this.preview_gray_2211.BackColor = System.Drawing.Color.Silver;
             this.preview_gray_2211.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.preview_gray_2211.Controls.Add(this.preview_no_button_color1);
             this.preview_gray_2211.Controls.Add(this.preview_not_red_anymore1);
             this.preview_gray_2211.Controls.Add(this.preview_not_light_green_anymore3);
             this.preview_gray_2211.Controls.Add(this.preview_not_light_green_anymore2);
@@ -397,6 +412,15 @@ namespace PolarisTheme
             this.preview_gray_2211.Name = "preview_gray_2211";
             this.preview_gray_2211.Size = new System.Drawing.Size(218, 237);
             this.preview_gray_2211.TabIndex = 30;
+            // 
+            // preview_not_red_anymore1
+            // 
+            this.preview_not_red_anymore1.AutoSize = true;
+            this.preview_not_red_anymore1.Location = new System.Drawing.Point(12, 205);
+            this.preview_not_red_anymore1.Name = "preview_not_red_anymore1";
+            this.preview_not_red_anymore1.Size = new System.Drawing.Size(83, 13);
+            this.preview_not_red_anymore1.TabIndex = 11;
+            this.preview_not_red_anymore1.Text = "A damaged ship";
             // 
             // preview_not_light_green_anymore3
             // 
@@ -572,32 +596,33 @@ namespace PolarisTheme
             this.label15.TabIndex = 35;
             this.label15.Text = "Red";
             // 
-            // not_red_anymore
+            // no_button_color
             // 
-            this.not_red_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.not_red_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_red_anymore.Location = new System.Drawing.Point(110, 382);
-            this.not_red_anymore.Name = "not_red_anymore";
-            this.not_red_anymore.Size = new System.Drawing.Size(178, 21);
-            this.not_red_anymore.TabIndex = 34;
-            this.toolTip1.SetToolTip(this.not_red_anymore, "For example, the light gray used for populations with a governor, in the Commande" +
-        "rs window");
-            this.not_red_anymore.UseVisualStyleBackColor = false;
+            this.no_button_color.AutoSize = true;
+            this.no_button_color.Location = new System.Drawing.Point(252, 30);
+            this.no_button_color.Name = "no_button_color";
+            this.no_button_color.Size = new System.Drawing.Size(99, 17);
+            this.no_button_color.TabIndex = 36;
+            this.no_button_color.Text = "No button color";
+            this.toolTip1.SetToolTip(this.no_button_color, "Disable coloring for buttons.  The advantage to this is that you can see a nice h" +
+        "ighlight of the whole button when mousing over it.");
+            this.no_button_color.UseVisualStyleBackColor = true;
             // 
-            // preview_not_red_anymore1
+            // preview_no_button_color1
             // 
-            this.preview_not_red_anymore1.AutoSize = true;
-            this.preview_not_red_anymore1.Location = new System.Drawing.Point(12, 205);
-            this.preview_not_red_anymore1.Name = "preview_not_red_anymore1";
-            this.preview_not_red_anymore1.Size = new System.Drawing.Size(83, 13);
-            this.preview_not_red_anymore1.TabIndex = 11;
-            this.preview_not_red_anymore1.Text = "A damaged ship";
+            this.preview_no_button_color1.Location = new System.Drawing.Point(129, 197);
+            this.preview_no_button_color1.Name = "preview_no_button_color1";
+            this.preview_no_button_color1.Size = new System.Drawing.Size(76, 29);
+            this.preview_no_button_color1.TabIndex = 12;
+            this.preview_no_button_color1.Text = "A button";
+            this.preview_no_button_color1.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 536);
+            this.Controls.Add(this.no_button_color);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.not_red_anymore);
             this.Controls.Add(this.no_dropdown_color);
@@ -696,5 +721,7 @@ namespace PolarisTheme
         public System.Windows.Forms.Label preview_not_red_anymore1;
         private System.Windows.Forms.Label label15;
         public System.Windows.Forms.Button not_red_anymore;
+        public System.Windows.Forms.CheckBox no_button_color;
+        public System.Windows.Forms.Button preview_no_button_color1;
     }
 }
