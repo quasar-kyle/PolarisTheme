@@ -10,7 +10,8 @@ using HarmonyLib;
 using Lib;
 
 /* DONE:
- * - added: setting to allow buttons to have the same color as windows, in the original Aurora style.
+ * - added: setting to disable the mod's default behavior of colorless buttons
+ * - added: setting to configure button colors seperately from the main UI color
  */
 
 namespace PolarisTheme
@@ -41,6 +42,7 @@ namespace PolarisTheme
         private static Color cfg_textColor;
         private static Color cfg_gray_221;
         private static Color cfg_combo_box_color;
+        private static Color cfg_button_color;
         private static Color cfg_light_blue_highlight;
         private static Color cfg_darker_orange;
         private static Color cfg_not_light_green_anymore;
@@ -61,6 +63,7 @@ namespace PolarisTheme
             cfg_textColor = Color.Black;
             cfg_gray_221 = Color.FromArgb(221, 221, 221);
             cfg_combo_box_color = Color.FromArgb(240, 240, 240);
+            cfg_button_color = Color.FromArgb(230, 230, 230);
             cfg_light_blue_highlight = Color.FromArgb(229, 241, 251);
             cfg_darker_orange = Color.FromArgb(187, 96, 0);
             cfg_not_light_green_anymore = Color.FromArgb(0, 0, 160);
@@ -99,6 +102,7 @@ namespace PolarisTheme
             form.textColor.BackColor = cfg_textColor;
             form.gray_221.BackColor = cfg_gray_221;
             form.combo_box_color.BackColor = cfg_combo_box_color;
+            form.button_color.BackColor = cfg_button_color;
             form.light_blue_highlight.BackColor = cfg_light_blue_highlight;
             form.darker_orange.BackColor = cfg_darker_orange;
             form.not_light_green_anymore.BackColor = cfg_not_light_green_anymore;
@@ -123,12 +127,14 @@ namespace PolarisTheme
             form.preview_combo_box_color2.ForeColor = form.textColor.BackColor;
             form.preview_combo_box_color1.DropDownStyle = form.no_dropdown_color.Checked ? ComboBoxStyle.DropDownList : ComboBoxStyle.DropDown;
             form.preview_combo_box_color2.DropDownStyle = form.no_dropdown_color.Checked ? ComboBoxStyle.DropDownList : ComboBoxStyle.DropDown;
+            form.preview_no_button_color1.BackColor = form.button_color.BackColor;
             form.preview_no_button_color1.UseVisualStyleBackColor = form.no_button_color.Checked;
             form.preview_no_button_color1.ForeColor = form.textColor.BackColor;
-            form.preview_time_button1.BackColor = form.gray_221.BackColor;
-            form.preview_time_button2.BackColor = form.light_blue_highlight.BackColor;
+            form.preview_time_button1.BackColor = form.button_color.BackColor;
+            form.preview_time_button1.UseVisualStyleBackColor = form.no_button_color.Checked;
             form.preview_time_button1.ForeColor = form.textColor.BackColor;
-            form.preview_time_button2.ForeColor = form.textColor.BackColor;
+            form.preview_time_button2.BackColor = form.light_blue_highlight.BackColor;
+            form.preview_time_button2.ForeColor = form.textColor.BackColor; 
             form.preview_darker_orange1.ForeColor = form.darker_orange.BackColor;
             form.preview_not_light_green_anymore1.ForeColor = form.not_light_green_anymore.BackColor;
             form.preview_not_light_green_anymore2.ForeColor = form.not_light_green_anymore.BackColor;
@@ -149,6 +155,7 @@ namespace PolarisTheme
             cfg_textColor = oldLightYellow;
             cfg_gray_221 = oldMapColor;
             cfg_combo_box_color = oldMapColor;
+            cfg_button_color = oldMapColor;
             cfg_light_blue_highlight = oldButtonHighlight;
             cfg_darker_orange = Color.Orange;
             cfg_not_light_green_anymore = oldLightGreen;
@@ -205,6 +212,7 @@ namespace PolarisTheme
             form.textColor.Click += (object sender, EventArgs e) => OnColorButtonClick(form.textColor);
             form.gray_221.Click += (object sender, EventArgs e) => OnColorButtonClick(form.gray_221);
             form.combo_box_color.Click += (object sender, EventArgs e) => OnColorButtonClick(form.combo_box_color);
+            form.button_color.Click += (object sender, EventArgs e) => OnColorButtonClick(form.button_color);
             form.light_blue_highlight.Click += (object sender, EventArgs e) => OnColorButtonClick(form.light_blue_highlight);
             form.darker_orange.Click += (object sender, EventArgs e) => OnColorButtonClick(form.darker_orange);
             form.not_light_green_anymore.Click += (object sender, EventArgs e) => OnColorButtonClick(form.not_light_green_anymore);
@@ -223,6 +231,7 @@ namespace PolarisTheme
                 cfg_textColor = form.textColor.BackColor;
                 cfg_gray_221 = form.gray_221.BackColor;
                 cfg_combo_box_color = form.combo_box_color.BackColor;
+                cfg_button_color = form.button_color.BackColor;
                 cfg_light_blue_highlight = form.light_blue_highlight.BackColor;
                 cfg_darker_orange = form.darker_orange.BackColor;
                 cfg_not_light_green_anymore = form.not_light_green_anymore.BackColor;
@@ -239,6 +248,7 @@ namespace PolarisTheme
                 Serialize("textColor", cfg_textColor);
                 Serialize("gray_221", cfg_gray_221);
                 Serialize("combo_box_color", cfg_combo_box_color);
+                Serialize("button_color", cfg_button_color);
                 Serialize("light_blue_highlight", cfg_light_blue_highlight);
                 Serialize("darker_orange", cfg_darker_orange);
                 Serialize("not_light_green_anymore", cfg_not_light_green_anymore);
@@ -268,6 +278,7 @@ namespace PolarisTheme
             if (File.Exists(GetSettingFileName("textColor"))) cfg_textColor = Deserialize<Color>("textColor");
             if (File.Exists(GetSettingFileName("gray_221"))) cfg_gray_221 = Deserialize<Color>("gray_221");
             if (File.Exists(GetSettingFileName("combo_box_color"))) cfg_combo_box_color = Deserialize<Color>("combo_box_color");
+            if (File.Exists(GetSettingFileName("button_color"))) cfg_button_color = Deserialize<Color>("button_color");
             if (File.Exists(GetSettingFileName("light_blue_highlight"))) cfg_light_blue_highlight = Deserialize<Color>("light_blue_highlight");
             if (File.Exists(GetSettingFileName("darker_orange"))) cfg_darker_orange = Deserialize<Color>("darker_orange");
             if (File.Exists(GetSettingFileName("not_light_green_anymore"))) cfg_not_light_green_anymore = Deserialize<Color>("not_light_green_anymore");
@@ -526,10 +537,17 @@ namespace PolarisTheme
             if (IsSubPulseButton(button) || IsTimeIncrementButton(button))
             {
                 button.BackColorChanged += TimeButton_BackColorChanged;
+                button.BackColor = cfg_button_color;
+                button.UseVisualStyleBackColor = cfg_no_button_color;
             }
-            else if (cfg_no_button_color || IsButtonOnMap(button))
+            else if (IsButtonOnMap(button))
             {
                 button.UseVisualStyleBackColor = true;
+            }
+            else
+            {
+                button.BackColor = cfg_button_color;
+                button.UseVisualStyleBackColor = cfg_no_button_color;
             }
         }
          
@@ -544,7 +562,8 @@ namespace PolarisTheme
                 if (button.BackColor == oldMapColor)
                 {
                     changing_button_backcolor = true;
-                    button.BackColor = cfg_gray_221;
+                    button.BackColor = cfg_button_color;
+                    button.UseVisualStyleBackColor = cfg_no_button_color;
                     changing_button_backcolor = false;
                 }
             }
@@ -591,7 +610,11 @@ namespace PolarisTheme
 
         private static void ApplyActiveButtonStyle(Button button, bool isActive)
         {
-            button.BackColor = isActive ? cfg_light_blue_highlight : cfg_gray_221;
+            button.BackColor = isActive ? cfg_light_blue_highlight : cfg_button_color;
+            if (!isActive && cfg_no_button_color)
+            {
+                button.UseVisualStyleBackColor = true;
+            }
         }
 
         private static void ApplyFormChanges(Form form)

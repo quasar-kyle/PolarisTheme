@@ -61,7 +61,9 @@ namespace PolarisTheme
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.no_dropdown_color = new System.Windows.Forms.CheckBox();
             this.not_red_anymore = new System.Windows.Forms.Button();
+            this.no_button_color = new System.Windows.Forms.CheckBox();
             this.preview_gray_2211 = new System.Windows.Forms.Panel();
+            this.preview_no_button_color1 = new System.Windows.Forms.Button();
             this.preview_not_red_anymore1 = new System.Windows.Forms.Label();
             this.preview_not_light_green_anymore3 = new System.Windows.Forms.Label();
             this.preview_not_light_green_anymore2 = new System.Windows.Forms.Label();
@@ -82,8 +84,8 @@ namespace PolarisTheme
             this.preview_combo_box_color2 = new System.Windows.Forms.ComboBox();
             this.resetToAurora = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.no_button_color = new System.Windows.Forms.CheckBox();
-            this.preview_no_button_color1 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button_color = new System.Windows.Forms.Button();
             this.preview_gray_2211.SuspendLayout();
             this.preview_mapColor1.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +123,7 @@ namespace PolarisTheme
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(254, 433);
+            this.saveButton.Location = new System.Drawing.Point(254, 460);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(272, 68);
             this.saveButton.TabIndex = 5;
@@ -131,7 +133,7 @@ namespace PolarisTheme
             // 
             // resetAll
             // 
-            this.resetAll.Location = new System.Drawing.Point(31, 461);
+            this.resetAll.Location = new System.Drawing.Point(31, 488);
             this.resetAll.Name = "resetAll";
             this.resetAll.Size = new System.Drawing.Size(162, 40);
             this.resetAll.TabIndex = 6;
@@ -198,7 +200,7 @@ namespace PolarisTheme
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 162);
+            this.label5.Location = new System.Drawing.Point(28, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 14;
@@ -208,7 +210,7 @@ namespace PolarisTheme
             // 
             this.light_blue_highlight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.light_blue_highlight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.light_blue_highlight.Location = new System.Drawing.Point(110, 166);
+            this.light_blue_highlight.Location = new System.Drawing.Point(110, 193);
             this.light_blue_highlight.Name = "light_blue_highlight";
             this.light_blue_highlight.Size = new System.Drawing.Size(178, 21);
             this.light_blue_highlight.TabIndex = 13;
@@ -217,7 +219,7 @@ namespace PolarisTheme
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 197);
+            this.label6.Location = new System.Drawing.Point(28, 224);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 16;
@@ -227,7 +229,7 @@ namespace PolarisTheme
             // 
             this.darker_orange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.darker_orange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.darker_orange.Location = new System.Drawing.Point(110, 193);
+            this.darker_orange.Location = new System.Drawing.Point(110, 220);
             this.darker_orange.Name = "darker_orange";
             this.darker_orange.Size = new System.Drawing.Size(178, 21);
             this.darker_orange.TabIndex = 15;
@@ -237,7 +239,7 @@ namespace PolarisTheme
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 224);
+            this.label7.Location = new System.Drawing.Point(28, 251);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 13);
             this.label7.TabIndex = 18;
@@ -247,7 +249,7 @@ namespace PolarisTheme
             // 
             this.not_light_green_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_light_green_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_light_green_anymore.Location = new System.Drawing.Point(110, 220);
+            this.not_light_green_anymore.Location = new System.Drawing.Point(110, 247);
             this.not_light_green_anymore.Name = "not_light_green_anymore";
             this.not_light_green_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_light_green_anymore.TabIndex = 17;
@@ -257,7 +259,7 @@ namespace PolarisTheme
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 251);
+            this.label8.Location = new System.Drawing.Point(28, 278);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 20;
@@ -267,7 +269,7 @@ namespace PolarisTheme
             // 
             this.not_cyan_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_cyan_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_cyan_anymore.Location = new System.Drawing.Point(110, 247);
+            this.not_cyan_anymore.Location = new System.Drawing.Point(110, 274);
             this.not_cyan_anymore.Name = "not_cyan_anymore";
             this.not_cyan_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_cyan_anymore.TabIndex = 19;
@@ -277,7 +279,7 @@ namespace PolarisTheme
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 278);
+            this.label9.Location = new System.Drawing.Point(28, 305);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 22;
@@ -287,7 +289,7 @@ namespace PolarisTheme
             // 
             this.not_cyan_body_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_cyan_body_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_cyan_body_anymore.Location = new System.Drawing.Point(110, 274);
+            this.not_cyan_body_anymore.Location = new System.Drawing.Point(110, 301);
             this.not_cyan_body_anymore.Name = "not_cyan_body_anymore";
             this.not_cyan_body_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_cyan_body_anymore.TabIndex = 21;
@@ -297,7 +299,7 @@ namespace PolarisTheme
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 305);
+            this.label10.Location = new System.Drawing.Point(28, 332);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(53, 13);
             this.label10.TabIndex = 24;
@@ -307,7 +309,7 @@ namespace PolarisTheme
             // 
             this.not_dodger_blue_body_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_dodger_blue_body_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_dodger_blue_body_anymore.Location = new System.Drawing.Point(110, 301);
+            this.not_dodger_blue_body_anymore.Location = new System.Drawing.Point(110, 328);
             this.not_dodger_blue_body_anymore.Name = "not_dodger_blue_body_anymore";
             this.not_dodger_blue_body_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_dodger_blue_body_anymore.TabIndex = 23;
@@ -317,7 +319,7 @@ namespace PolarisTheme
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 332);
+            this.label11.Location = new System.Drawing.Point(28, 359);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 13);
             this.label11.TabIndex = 26;
@@ -327,7 +329,7 @@ namespace PolarisTheme
             // 
             this.not_chocolate_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_chocolate_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_chocolate_anymore.Location = new System.Drawing.Point(110, 328);
+            this.not_chocolate_anymore.Location = new System.Drawing.Point(110, 355);
             this.not_chocolate_anymore.Name = "not_chocolate_anymore";
             this.not_chocolate_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_chocolate_anymore.TabIndex = 25;
@@ -336,7 +338,7 @@ namespace PolarisTheme
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 359);
+            this.label12.Location = new System.Drawing.Point(28, 386);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 28;
@@ -346,7 +348,7 @@ namespace PolarisTheme
             // 
             this.not_light_gray_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_light_gray_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_light_gray_anymore.Location = new System.Drawing.Point(110, 355);
+            this.not_light_gray_anymore.Location = new System.Drawing.Point(110, 382);
             this.not_light_gray_anymore.Name = "not_light_gray_anymore";
             this.not_light_gray_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_light_gray_anymore.TabIndex = 27;
@@ -357,7 +359,7 @@ namespace PolarisTheme
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 174);
+            this.label13.Location = new System.Drawing.Point(30, 201);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 13);
             this.label13.TabIndex = 29;
@@ -382,13 +384,25 @@ namespace PolarisTheme
             // 
             this.not_red_anymore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.not_red_anymore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.not_red_anymore.Location = new System.Drawing.Point(110, 382);
+            this.not_red_anymore.Location = new System.Drawing.Point(110, 409);
             this.not_red_anymore.Name = "not_red_anymore";
             this.not_red_anymore.Size = new System.Drawing.Size(178, 21);
             this.not_red_anymore.TabIndex = 34;
             this.toolTip1.SetToolTip(this.not_red_anymore, "For example, the light gray used for populations with a governor, in the Commande" +
         "rs window");
             this.not_red_anymore.UseVisualStyleBackColor = false;
+            // 
+            // no_button_color
+            // 
+            this.no_button_color.AutoSize = true;
+            this.no_button_color.Location = new System.Drawing.Point(252, 30);
+            this.no_button_color.Name = "no_button_color";
+            this.no_button_color.Size = new System.Drawing.Size(99, 17);
+            this.no_button_color.TabIndex = 36;
+            this.no_button_color.Text = "No button color";
+            this.toolTip1.SetToolTip(this.no_button_color, "Disable coloring for buttons.  The advantage to this is that you can see a nice h" +
+        "ighlight of the whole button when mousing over it.");
+            this.no_button_color.UseVisualStyleBackColor = true;
             // 
             // preview_gray_2211
             // 
@@ -410,8 +424,17 @@ namespace PolarisTheme
             this.preview_gray_2211.Controls.Add(this.preview_textColor1);
             this.preview_gray_2211.Location = new System.Drawing.Point(308, 58);
             this.preview_gray_2211.Name = "preview_gray_2211";
-            this.preview_gray_2211.Size = new System.Drawing.Size(218, 237);
+            this.preview_gray_2211.Size = new System.Drawing.Size(218, 260);
             this.preview_gray_2211.TabIndex = 30;
+            // 
+            // preview_no_button_color1
+            // 
+            this.preview_no_button_color1.Location = new System.Drawing.Point(109, 215);
+            this.preview_no_button_color1.Name = "preview_no_button_color1";
+            this.preview_no_button_color1.Size = new System.Drawing.Size(91, 29);
+            this.preview_no_button_color1.TabIndex = 12;
+            this.preview_no_button_color1.Text = "A button";
+            this.preview_no_button_color1.UseVisualStyleBackColor = true;
             // 
             // preview_not_red_anymore1
             // 
@@ -545,7 +568,7 @@ namespace PolarisTheme
             this.preview_mapColor1.Controls.Add(this.preview_time_button2);
             this.preview_mapColor1.Controls.Add(this.preview_time_button1);
             this.preview_mapColor1.Controls.Add(this.preview_combo_box_color2);
-            this.preview_mapColor1.Location = new System.Drawing.Point(308, 305);
+            this.preview_mapColor1.Location = new System.Drawing.Point(308, 332);
             this.preview_mapColor1.Name = "preview_mapColor1";
             this.preview_mapColor1.Size = new System.Drawing.Size(218, 98);
             this.preview_mapColor1.TabIndex = 32;
@@ -580,7 +603,7 @@ namespace PolarisTheme
             // 
             // resetToAurora
             // 
-            this.resetToAurora.Location = new System.Drawing.Point(31, 433);
+            this.resetToAurora.Location = new System.Drawing.Point(31, 460);
             this.resetToAurora.Name = "resetToAurora";
             this.resetToAurora.Size = new System.Drawing.Size(162, 22);
             this.resetToAurora.TabIndex = 6;
@@ -590,38 +613,38 @@ namespace PolarisTheme
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(28, 386);
+            this.label15.Location = new System.Drawing.Point(28, 413);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(27, 13);
             this.label15.TabIndex = 35;
             this.label15.Text = "Red";
             // 
-            // no_button_color
+            // label16
             // 
-            this.no_button_color.AutoSize = true;
-            this.no_button_color.Location = new System.Drawing.Point(252, 30);
-            this.no_button_color.Name = "no_button_color";
-            this.no_button_color.Size = new System.Drawing.Size(99, 17);
-            this.no_button_color.TabIndex = 36;
-            this.no_button_color.Text = "No button color";
-            this.toolTip1.SetToolTip(this.no_button_color, "Disable coloring for buttons.  The advantage to this is that you can see a nice h" +
-        "ighlight of the whole button when mousing over it.");
-            this.no_button_color.UseVisualStyleBackColor = true;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(28, 170);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(43, 13);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Buttons";
             // 
-            // preview_no_button_color1
+            // button_color
             // 
-            this.preview_no_button_color1.Location = new System.Drawing.Point(129, 197);
-            this.preview_no_button_color1.Name = "preview_no_button_color1";
-            this.preview_no_button_color1.Size = new System.Drawing.Size(76, 29);
-            this.preview_no_button_color1.TabIndex = 12;
-            this.preview_no_button_color1.Text = "A button";
-            this.preview_no_button_color1.UseVisualStyleBackColor = true;
+            this.button_color.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_color.Location = new System.Drawing.Point(110, 166);
+            this.button_color.Name = "button_color";
+            this.button_color.Size = new System.Drawing.Size(178, 21);
+            this.button_color.TabIndex = 37;
+            this.button_color.UseVisualStyleBackColor = false;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 536);
+            this.ClientSize = new System.Drawing.Size(564, 561);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.button_color);
             this.Controls.Add(this.no_button_color);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.not_red_anymore);
@@ -723,5 +746,7 @@ namespace PolarisTheme
         public System.Windows.Forms.Button not_red_anymore;
         public System.Windows.Forms.CheckBox no_button_color;
         public System.Windows.Forms.Button preview_no_button_color1;
+        private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Button button_color;
     }
 }
